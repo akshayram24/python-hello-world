@@ -35,8 +35,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        export DOCKER_BUILDKIT=0  # Disable buildx (optional)
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/python-hello-world .  # Add `.` as the build context
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/python-hello-world .   # Ensure `.` is included as the build context
 
     - name: Push Docker image
       run: docker push ${{ secrets.DOCKER_USERNAME }}/python-hello-world
